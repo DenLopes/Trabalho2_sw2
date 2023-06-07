@@ -1,39 +1,47 @@
 <script setup>
-import Chart from "chart.js/auto";
-import { ref, onMounted } from "vue";
+import Grafico from "../components/Grafico.vue";
+import { ref, onMounted, computed } from "vue";
 import dadosIbama from "../assets/Ibama.json";
 
 const dados = dadosIbama;
-const tipoReceita = ref([]);
-const canvas = ref(null);
+const tiposReceita = ref([]);
+const receitaSelecionada = ref('Selecione o tipo de receita');
 
 const separaReceita = () => {
   dados.data.forEach((item) => {
-    if (!tipoReceita.value.includes(item.receita)) {
-      tipoReceita.value.push(item.receita);
+    if (!tiposReceita.value.includes(item.receita)) {
+      tiposReceita.value.push(item.receita);
     }
   });
 };
 
+const xAxis = computed(() => {
+	if(receitaSelecionada.value != 'Selecione o tipo de receita'){
+		return dados.data.filter(item => item.receita == receitaSelecionada.value).map(item => item.ano);
+	}
+	return [];
+});
+
+const yAxis = computed(() => {
+	if(receitaSelecionada.value!= 'Selecione o tipo de receita'){
+    return dados.data.filter(item => item.receita == receitaSelecionada.value).map(item => item.valor);
+  }
+  return [];
+});
+
 onMounted(() => {
-  canvas.value = document.querySelector("canvas");
-
-  const chartConfig = {
-    title: "My Chart",
-    xAxis: ["Label 1", "Label 2", "Label 3"],
-    yAxis: [10, 20, 30],
-  };
-
-  new Chart(canvas, chartConfig);
-	
-  console.log(dados);
   separaReceita();
-  console.log(tipoReceita.value);
 });
 </script>
 
 <template>
-  <div>
-    <canvas ref="canvas"></canvas>
+  <div class="flex justify-center w-full h-full">
+		<div class="flex flex-col justify-center">
+			<select v-model="receitaSelecionada" class="select select-bordered w-full max-w-xs mr-auto mb-32">
+				<option disabled selected>Selecione o tipo de receita</option>
+				<option v-for="(tipoReceita, index) in tiposReceita" :key="index">{{ tipoReceita }}</option>
+			</select>
+			<Grafico :xAxis="xAxis" :yAxis="yAxis" :label="receitaSelecionada" :key="receitaSelecionada"/>
+		</div>
   </div>
 </template>
