@@ -6,7 +6,7 @@
   <div class="flex flex-col justify-between bg-green-600 w-full min-h-full">
     <div class="text-center mt-36 w-full">
       <span
-        class="text-center font-bold text-[11rem] text-transparent bg-clip-text bg-gradient-to-b from-lime-300 to-yellow-300 hover:animate-spin"
+        class="text-center font-bold text-[11rem] text-transparent bg-clip-text bg-gradient-to-b from-lime-300 to-yellow-300"
         >IBAMA</span
       >
       <div class="text-center flex h-full mb-12">

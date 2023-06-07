@@ -29,7 +29,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-[800px] bg-white">
+  <div class="w-[800px] bg-white rounded-md">
     <canvas ref="canvas"></canvas>
   </div>
 </template>
