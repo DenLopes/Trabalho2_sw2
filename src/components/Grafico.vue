@@ -7,7 +7,7 @@ const props = defineProps(["xAxis", "yAxis", "label"]);
 const canvas = ref(null);
 
 const chartConfig = {
-  type: "line",
+  type: "bar",
   data: {
     labels: props.xAxis,
     datasets: [

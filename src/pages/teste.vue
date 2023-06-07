@@ -13,6 +13,17 @@ const separaReceita = () => {
       tiposReceita.value.push(item.receita);
     }
   });
+  //tira dos tipo onde tme pouco dados
+	let newTiposReceita = [];
+tiposReceita.value.forEach((item) => {
+  let selecionada = dados.data.filter(i => i.receita == item);
+  if(selecionada.length >= 8){
+    newTiposReceita.push(item);
+  }
+});
+
+tiposReceita.value = newTiposReceita;
+
 };
 
 const xAxis = computed(() => {
