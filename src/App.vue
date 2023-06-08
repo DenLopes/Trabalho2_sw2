@@ -1,7 +1,8 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
-  <div class="bg-green-800 h-screen">
+  <div class="bg-green-800 min-h-screen">
     <router-view v-slot="{ Component }">
       <transition
         enter-active-class="duration-300 ease-out"
@@ -17,4 +18,5 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
