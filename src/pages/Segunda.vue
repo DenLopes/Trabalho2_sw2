@@ -1,9 +1,56 @@
 <script setup>
+import { ref } from "vue";
 
+
+const botoes = ref([
+	{
+		nome: "Proteção animal",
+		estado: true,
+		classe: ""
+	},
+	{
+		nome: "Proteção Da Flora",
+		estado: false,
+		classe: "bg-pink-500"
+	},
+	{
+		nome: "Atuação Politica",
+		estado: false,
+		classe: ""
+	}
+])
+
+const textoBotoes = ref([
+	{
+		texto: "Proteção animal",
+		estado: true,
+		classe: ""
+	},
+	{
+		texto: "Proteção Da Flora",
+		estado: false,
+		classe: "bg-pink-500"
+	},
+	{
+		texto: "Atuação Politica",
+		estado: false,
+		classe: ""
+	}
+])
+
+const mudaEstadoBotao = (val, index) => {
+	for (var i = 0; i < val.value.length; i++ ){
+		if(i == index) {
+			val.value[i].estado = true;
+			continue;
+		}	
+		val.value[i].estado = false;
+	}
+}
 </script>
-
+	
 <template>
-  <div class="bg-slate-900 min-h-screen">
+  <div class="bg-slate-950 min-h-screen">
 
     <div class="flex w-[85%]">
       <RouterLink to="/" class="btn btn-ghost normal-case text-xl"
@@ -40,13 +87,27 @@
 			<button class="btn w-40 h-12 bg-green-500 self-center mt-5 text-white">
 				Veja mais
 				</button>	
+				
 			<div class="flex flex-col items-center mt-32">
 				<h2 class="text-yellow-300 text-3xl font-bold">ATUAÇÕES DO IBAMA</h2>
 				<p class="mt-16 text-2xl w-[90%] leading-10">
 					Entenda sobre as atuações do IBAMA. a Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quisquam fugit, accusantium commodi praesentium quo esse quidem, sint quis ea nemo ratione temporibus est. Atque quisquam vero nisi quam distinctio!(INSIRA MAIS TEXTO, usar STRONG para <strong class="text-yellow-300">negrito</strong> com text-yellow-300).
 				</p>
 			</div>
-			<div class="flex justify-between"></div>
+
+
+			<div class="flex flex-col">
+				<div class="flex justify-around">
+					<button  v-for="(botao, index) in botoes" @click="mudaEstadoBotao(index)" :class="botao.classe" class="btn" >
+						{{ botao.nome }} 
+					</button>
+				</div>
+				
+				<div>
+
+				</div>
+
+			</div>
 
 
 
