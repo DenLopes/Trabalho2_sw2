@@ -20,7 +20,7 @@
       <router-link
         to="/inf"
         class="btn w-40 h-16 text-white border border-solid border-white text-lg"
-        >Descubra</router-link
+        >Saiba mais</router-link
       >
     </div>
     <div class="flex justify-between p-4">
