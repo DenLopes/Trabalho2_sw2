@@ -148,8 +148,8 @@ onMounted(() => {
       <div class="flex flex-col items-center mt-24">
         <h2 class="text-yellow-300 text-3xl font-bold">ATUAÇÕES DO IBAMA</h2>
         <p class="mt-16 text-2xl w-[90%] leading-10">
-          Entenda sobre as atuações do IBAMA. 
-          <strong class="text-yellow-300">negrito</strong>
+          Entenda sobre as atuações do 
+          <strong class="text-yellow-300">IBAMA.</strong>
         </p>
       </div>
 
