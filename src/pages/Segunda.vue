@@ -51,7 +51,7 @@ const yAxis = computed(() => {
 const botoes = ref([
   {
     nome: "Proteção animal",
-    estado: false,
+    estado: true,
     classe: "",
   },
   {
