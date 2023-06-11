@@ -7,10 +7,6 @@ const dados = dadosIbama;
 const tiposReceita = ref([]);
 const receitaSelecionada = ref("Selecione o tipo de receita");
 
-//refs para pegar elemantos do template e mudar o css
-const refCorpoText = ref(null);
-const refDivCorpoText = ref(null);
-
 //função que separa e seleciona as receitas
 const separaReceita = () => {
   //pega um array com todos os tipos de receita
@@ -56,36 +52,39 @@ const botoes = ref([
   {
     nome: "Proteção animal",
     estado: false,
-    classe: "bg-yellow-400 text-black hover:text-white",
+    classe: "",
   },
   {
     nome: "Proteção Da Flora",
     estado: false,
-    classe: "bg-pink-400 text-black hover:text-white",
+    classe: "",
   },
   {
     nome: "Atuação Politica",
     estado: false,
-    classe: "bg-lime-400 text-black hover:text-white",
+    classe: "",
   },
 ]);
 
 //array de texto do corpo
 const textoBotoes = ref([
   {
-    texto: "O IBAMA tem um desempenho importante na proteção animal no Brasil. Algumas das ações realizadas pelo IBAMA na proteção animal incluem, combate ao tráfico de animais, fiscalização de atividades que evolvem animais, monitoramento de espécies ameaçadas, resgate e reabilitação de animais e educação e conscientização.",
+    texto:
+      "O IBAMA desempenha um papel crucial na proteção da fauna brasileira, combatendo o tráfico de animais, fiscalizando atividades relacionadas a eles, monitorando espécies ameaçadas, e promovendo o resgate, reabilitação e educação ambiental.",
     estado: true,
-    classe: "bg-yellow-500 rounded-md",
+    classe: "border-solid border border-white p-4 rounded-md",
   },
   {
-    texto: "O IBAMA tem um desempenho importante na proteção da flora no Brasil. Algumas das ações realizadas pelo IBAMA na proteção da flora incluem, licenciamento e controle de atividades florestais, fiscalização e combate ao desmatamento ilegal, monitoramento de áreas protegidas e proteção de espécies ameaçadas.",
+    texto:
+      "O IBAMA é fundamental na conservação da flora brasileira. Suas ações incluem o licenciamento e controle de atividades florestais, combate ao desmatamento ilegal, monitoramento de áreas protegidas e proteção de espécies em perigo.",
     estado: false,
-    classe: "bg-pink-500 rounded-md",
+    classe: "border-solid border border-white p-4 rounded-md",
   },
   {
-    texto: "O IBAMA, como um orgão governamental, tem uma atuação política que se baseia na execução das políticas públicas relacionadas ai meio ambiente e na implementação de leis ambientais. Sua atuação política abrange, formulação de políticas ambientais, implementação de legislação ambiental, representação em fóruns e negociações internacionais, articulação com outros orgões e entidades e promoção da participação social.",
+    texto:
+      "Como órgão governamental, o IBAMA executa políticas públicas relacionadas ao meio ambiente, implementa legislação ambiental, representa o país em fóruns internacionais, articula-se com outras entidades e promove a participação social na gestão ambiental.",
     estado: false,
-    classe: "bg-lime-500 rounded-md",
+    classe: "border-solid border border-white p-4 rounded-md",
   },
 ]);
 
@@ -99,20 +98,6 @@ const mudaEstado = (val, index) => {
     val[i].estado = false;
   }
 };
-
-//gambiarra para o testo ter o height to tamanho do texto mesmo sendo absolute
-watch(botoes.value, () => {
-  if(refCorpoText.value != null){
-    refCorpoText.value.forEach((item, index) => {
-      if (botoes.value[index].estado) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
-      refDivCorpoText.value[index].style.height = refCorpoText.value[index].clientHeight + 'px';
-    })  
-  }
-})
 
 onMounted(() => {
   separaReceita();
@@ -129,13 +114,13 @@ onMounted(() => {
       >{{ "<" }}</RouterLink
     >
     <div
-      class="flex flex-col justify-between content-center p-8 text-white text-xl"
+      class="flex flex-col justify-between content-center px-12 text-white text-xl"
     >
       <h2 class="text-green-500 text-center text-3xl font-bold mb-28">
         O QUE É O IBAMA?
       </h2>
       <div class="flex flex-row m-4 justify-around mb-40 items-center">
-        <p class="w-[70%] leading-10 text-justify text-2xl">
+        <p class="w-full leading-10 text-justify text-2xl">
           O Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais
           Renováveis <strong class="text-green-500">(IBAMA)</strong> foi criado
           em 1989, por meio da Lei nº 7.735, com o objetivo de unificar e
@@ -151,7 +136,7 @@ onMounted(() => {
           para combater crimes ambientais, promover a conservação da
           biodiversidade e assegurar o uso sustentável dos recursos naturais.
         </p>
-        <img src="../assets/brasil.png" alt="brasil" class="w-44 h-44" />
+        <img src="../assets/brasil.png" alt="brasil" class="ml-24 w-44 h-44" />
       </div>
       <div class="flex m-4 justify-around">
         <div class="flex">
@@ -160,54 +145,71 @@ onMounted(() => {
           >
           <span class="text-green-500 font-bold text-8xl ml-2">R$</span>
         </div>
-        <p class="w-[70%] text-2xl leading-10">
-          É o orçamento previsto para o ano de 2023, mas para onde vai todo este
-          gasto?(insirir um texto decente.)
-        </p>
+        <div class="flex flex-col w-full">
+          <p class="w-full text-2xl leading-10 mb-10 ml-6 m-4">
+            O orçamento do IBAMA é direcionado para diversas áreas fundamentais
+            na preservação do meio ambiente. Mas como esse recurso é dividido?
+            Explore o gráfico abaixo para compreender melhor a distribuição das
+            receitas do IBAMA para o ano de 2023.
+          </p>
+          <div class="flex w-full h-full justify-center m-4">
+            <div class="flex justify-center">
+              <select
+                v-model="receitaSelecionada"
+                class="select select-bordered w-full max-w-xs mr-2 text-black"
+              >
+                <option disabled selected>Selecione o tipo de receita</option>
+                <option
+                  v-for="(tipoReceita, index) in tiposReceita"
+                  :key="index"
+                >
+                  {{ tipoReceita }}
+                </option>
+              </select>
+              <Grafico
+                :xAxis="xAxis"
+                :yAxis="yAxis"
+                :label="receitaSelecionada"
+                :key="receitaSelecionada"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-			<div class="flex justify-end w-full h-full">
-		<div class="flex justify-center">
-			<select v-model="receitaSelecionada" class="select select-bordered w-full max-w-xs mr-2 text-black">
-				<option disabled selected>Selecione o tipo de receita</option>
-				<option v-for="(tipoReceita, index) in tiposReceita" :key="index">{{ tipoReceita }}</option>
-			</select>
-			<Grafico :xAxis="xAxis" :yAxis="yAxis" :label="receitaSelecionada" :key="receitaSelecionada"/>
-		</div>
-  </div>
 
       <div class="flex flex-col items-center mt-24">
         <h2 class="text-yellow-300 text-3xl font-bold">ATUAÇÕES DO IBAMA</h2>
         <p class="mt-16 text-2xl w-[90%] leading-10">
-          Entenda sobre as atuações do IBAMA. 
-          <strong class="text-yellow-300">negrito</strong>
+          O IBAMA, Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais
+          Renováveis, é responsável por implementar e fazer cumprir as políticas
+          ambientais do Brasil. Sua atuação é vasta, incluindo proteção da fauna
+          e flora, bem como representação política. Clique nos botões abaixo
+          para entender melhor sobre cada uma das
+          <strong class="text-yellow-300">ações principais</strong> do IBAMA.
         </p>
       </div>
 
-      <div class="flex flex-col mt-12 mb-36">
+      <div class="flex flex-col mt-12 mb-44">
         <div class="flex justify-around mb-12">
           <button
             v-for="(botao, index) in botoes"
-            @click="
-              mudaEstado(botoes, index),
-              mudaEstado(textoBotoes, index)
-            "
+            @click="mudaEstado(botoes, index), mudaEstado(textoBotoes, index)"
             :class="botao.classe"
             class="btn"
           >
             {{ botao.nome }}
           </button>
         </div>
-        <div ref="refDivCorpoText" v-for="(texto, index) in textoBotoes" :key="index" class="flex">
+        <div v-for="(texto, index) in textoBotoes" :key="index" class="flex">
           <transition
-        enter-active-class="duration-100 ease-out"
-        enter-from-class="transform opacity-0"
-        enter-to-class="opacity-50"
-        leave-active-class="duration-200 ease-in"
-        leave-from-class="opacity-100"
-        leave-to-class="transform opacity-0 "
+            enter-active-class="duration-200 ease-out"
+            enter-from-class="transform opacity-0"
+            enter-to-class="opacity-200"
+            leave-active-class="duration-200 ease-in"
+            leave-from-class="opacity-100"
+            leave-to-class="transform opacity-0 "
           >
             <span
-            ref="refCorpoText"
               class="absolute w-[calc(100vw-100px)]"
               v-show="texto.estado"
               :key="index"
@@ -262,10 +264,10 @@ onMounted(() => {
         </p>
       </div>
       <div class="flex justify-items-center m-4">
-          É importante destacar que o IBAMA atua em parceria com outros órgãos
-          governamentais, como as polícias federal e militar ambiental, e com
-          entidades da sociedade civil para fortalecer a proteção ambiental no
-          Brasil.
+        É importante destacar que o IBAMA atua em parceria com outros órgãos
+        governamentais, como as polícias federal e militar ambiental, e com
+        entidades da sociedade civil para fortalecer a proteção ambiental no
+        Brasil.
       </div>
     </div>
   </div>
