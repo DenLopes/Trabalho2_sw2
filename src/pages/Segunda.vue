@@ -70,9 +70,9 @@ const botoes = ref([
 const textoBotoes = ref([
   {
     texto:
-      "O IBAMA desempenha um papel crucial na proteção da fauna brasileira, combatendo o tráfico de animais, fiscalizando atividades relacionadas a eles, monitorando espécies ameaçadas, e promovendo o resgate, reabilitação e educação ambiental.",
+      "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
     estado: true,
-    classe: "border-solid border border-white p-4 rounded-md",
+    classe: "border-solid border border-white p-6 rounded-md text-center border-yellow-300",
   },
   {
     texto:
@@ -119,6 +119,7 @@ onMounted(() => {
       <h2 class="text-green-500 text-center text-3xl font-bold mb-28">
         O QUE É O IBAMA?
       </h2>
+	  
       <div class="flex flex-row m-4 justify-around mb-40 items-center">
         <p class="w-[70%] leading-10 text-justify text-2xl">
           O Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais
@@ -141,7 +142,7 @@ onMounted(() => {
       <div class="flex m-4 justify-around">
         <div class="flex">
           <span class="text-green-500 font-bold text-5xl text-center"
-            >1.87<br />BILHÃO</span
+            >1.87<br/>BILHÃO</span
           >
           <span class="text-green-500 font-bold text-8xl ml-2">R$</span>
         </div>
@@ -218,56 +219,6 @@ onMounted(() => {
             >
           </transition>
         </div>
-      </div>
-
-      <div class="flex flex-row m-4 justify-around">
-        <p class="w-[70%] leading-9">
-          Proteção da fauna e flora: O IBAMA trabalha para combater o tráfico de
-          animais silvestres, promover a conservação de espécies ameaçadas de
-          extinção e proteger a flora brasileira. O órgão emite licenças para
-          atividades que envolvem animais e plantas, realiza resgates e
-          reintroduções de espécies em perigo, e desenvolve programas de
-          conservação.
-        </p>
-        <img src="" alt="brasil" class="w-44 h-44" />
-      </div>
-      <div class="flex flex-row m-4 justify-around">
-        <img src="" alt="brasil" class="w-44 h-44" />
-        <p class="w-[70%]">
-          Criação e gestão de unidades de conservação: O IBAMA tem participado
-          ativamente na criação e gestão de unidades de conservação no Brasil,
-          como parques nacionais, reservas biológicas e áreas de proteção
-          ambiental. Essas áreas protegidas desempenham um papel fundamental na
-          preservação de ecossistemas, na conservação da biodiversidade e no
-          desenvolvimento de pesquisas científicas.
-        </p>
-      </div>
-      <div class="flex flex-row m-4 justify-around mb-40">
-        <p class="w-[70%] leading-9">
-          Fiscalização e aplicação de sanções: O IBAMA possui uma importante
-          atuação na fiscalização e aplicação de sanções administrativas para
-          infrações e crimes ambientais. Os agentes do IBAMA realizam operações
-          de campo, autuam os responsáveis por irregularidades e aplicam multas
-          e outras penalidades previstas em lei.
-        </p>
-        <img src="" alt="brasil" class="w-44 h-44" />
-      </div>
-      <div class="flex flex-row m-4 justify-around">
-        <img src="" alt="brasil" class="w-44 h-44" />
-        <p class="w-[70%]">
-          Educação ambiental: O IBAMA promove a educação e conscientização
-          ambiental por meio de campanhas, programas e projetos que visam
-          sensibilizar a população sobre a importância da conservação do meio
-          ambiente. São desenvolvidas ações educativas em escolas, comunidades e
-          meios de comunicação, buscando incentivar práticas sustentáveis e a
-          participação da sociedade na proteção ambiental.
-        </p>
-      </div>
-      <div class="flex justify-center pb-12">
-        É importante destacar que o IBAMA atua em parceria com outros órgãos
-        governamentais, como as polícias federal e militar ambiental, e com
-        entidades da sociedade civil para fortalecer a proteção ambiental no
-        Brasil.
       </div>
     </div>
   </div>
