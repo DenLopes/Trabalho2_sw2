@@ -73,22 +73,19 @@ const botoes = ref([
 //array de texto do corpo
 const textoBotoes = ref([
   {
-    texto:
-      "Ecrava algo sobre Proteção animal, TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO",
+    texto: "O IBAMA tem um desempenho importante na proteção animal no Brasil. Algumas das ações realizadas pelo IBAMA na proteção animal incluem, combate ao tráfico de animais, fiscalização de atividades que evolvem animais, monitoramento de espécies ameaçadas, resgate e reabilitação de animais e educação e conscientização.",
     estado: true,
-    classe: 'bg-yellow-500',
+    classe: "bg-yellow-500 rounded-md",
   },
   {
-    texto:
-      "Ecrava algo sobre Proteção Da Flora, TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO",
+    texto: "O IBAMA tem um desempenho importante na proteção da flora no Brasil. Algumas das ações realizadas pelo IBAMA na proteção da flora incluem, licenciamento e controle de atividades florestais, fiscalização e combate ao desmatamento ilegal, monitoramento de áreas protegidas e proteção de espécies ameaçadas.",
     estado: false,
-    classe: 'bg-pink-500',
+    classe: "bg-pink-500 rounded-md",
   },
   {
-    texto:
-      "Ecrava algo sobre Atuação Politica, TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOO TEXTOOOOOOOOOOOTEXTOOOOOOOOOOOTEXTOOOOOOOOOOO",
+    texto: "O IBAMA, como um orgão governamental, tem uma atuação política que se baseia na execução das políticas públicas relacionadas ai meio ambiente e na implementação de leis ambientais. Sua atuação política abrange, formulação de políticas ambientais, implementação de legislação ambiental, representação em fóruns e negociações internacionais, articulação com outros orgões e entidades e promoção da participação social.",
     estado: false,
-    classe: 'bg-lime-500',
+    classe: "bg-lime-500 rounded-md",
   },
 ]);
 
@@ -164,40 +161,26 @@ onMounted(() => {
           >
           <span class="text-green-500 font-bold text-8xl ml-2">R$</span>
         </div>
-
-        <div class="flex flex-col justify-center">
-          <p class="w-[70%] text-2xl leading-10 mb-auto">
-            É o orçamento previsto para o ano de 2023, mas para onde vai todo
-            esté gasto?(insirir um texto decente.)
-          </p>
-          <div class="flex mt-10">
-            <select
-              v-model="receitaSelecionada"
-              class="select select-bordered w-full max-w-xs mr-2 text-black"
-            >
-              <option disabled selected>Selecione o tipo de receita</option>
-              <option v-for="(tipoReceita, index) in tiposReceita" :key="index">
-                {{ tipoReceita }}
-              </option>
-            </select>
-            <Grafico
-              :xAxis="xAxis"
-              :yAxis="yAxis"
-              :label="receitaSelecionada"
-              :key="receitaSelecionada"
-            />
-          </div>
-        </div>
+        <p class="w-[70%] text-2xl leading-10">
+          É o orçamento previsto para o ano de 2023, mas para onde vai todo este
+          gasto?(insirir um texto decente.)
+        </p>
       </div>
+			<div class="flex justify-end w-full h-full">
+		<div class="flex justify-center">
+			<select v-model="receitaSelecionada" class="select select-bordered w-full max-w-xs mr-2 text-black">
+				<option disabled selected>Selecione o tipo de receita</option>
+				<option v-for="(tipoReceita, index) in tiposReceita" :key="index">{{ tipoReceita }}</option>
+			</select>
+			<Grafico :xAxis="xAxis" :yAxis="yAxis" :label="receitaSelecionada" :key="receitaSelecionada"/>
+		</div>
+  </div>
+
       <div class="flex flex-col items-center mt-24">
         <h2 class="text-yellow-300 text-3xl font-bold">ATUAÇÕES DO IBAMA</h2>
         <p class="mt-16 text-2xl w-[90%] leading-10">
-          Entenda sobre as atuações do IBAMA. a Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Reprehenderit quisquam fugit,
-          accusantium commodi praesentium quo esse quidem, sint quis ea nemo
-          ratione temporibus est. Atque quisquam vero nisi quam
-          distinctio!(INSIRA MAIS TEXTO, usar STRONG para
-          <strong class="text-yellow-300">negrito</strong> com text-yellow-300).
+          Entenda sobre as atuações do IBAMA. 
+          <strong class="text-yellow-300">negrito</strong>
         </p>
       </div>
 
@@ -279,13 +262,11 @@ onMounted(() => {
           participação da sociedade na proteção ambiental.
         </p>
       </div>
-      <div class="flex items-center m-4">
-        <p class="w-[70%]">
+      <div class="flex justify-items-center m-4">
           É importante destacar que o IBAMA atua em parceria com outros órgãos
           governamentais, como as polícias federal e militar ambiental, e com
           entidades da sociedade civil para fortalecer a proteção ambiental no
           Brasil.
-        </p>
       </div>
     </div>
   </div>
