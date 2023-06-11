@@ -120,7 +120,7 @@ onMounted(() => {
         O QUE É O IBAMA?
       </h2>
       <div class="flex flex-row m-4 justify-around mb-40 items-center">
-        <p class="w-full leading-10 text-justify text-2xl">
+        <p class="w-[70%] leading-10 text-justify text-2xl">
           O Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais
           Renováveis <strong class="text-green-500">(IBAMA)</strong> foi criado
           em 1989, por meio da Lei nº 7.735, com o objetivo de unificar e
@@ -136,7 +136,7 @@ onMounted(() => {
           para combater crimes ambientais, promover a conservação da
           biodiversidade e assegurar o uso sustentável dos recursos naturais.
         </p>
-        <img src="../assets/brasil.png" alt="brasil" class="ml-24 w-44 h-44" />
+        <img src="../assets/brasil.png" alt="brasil" class="w-44 h-44" />
       </div>
       <div class="flex m-4 justify-around">
         <div class="flex">
@@ -263,7 +263,7 @@ onMounted(() => {
           participação da sociedade na proteção ambiental.
         </p>
       </div>
-      <div class="flex justify-items-center m-4">
+      <div class="flex justify-center pb-12">
         É importante destacar que o IBAMA atua em parceria com outros órgãos
         governamentais, como as polícias federal e militar ambiental, e com
         entidades da sociedade civil para fortalecer a proteção ambiental no
