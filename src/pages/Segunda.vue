@@ -122,13 +122,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative bg-gray-950 min-h-screen">
+  <div class="bg-gray-950 min-h-screen">
     <RouterLink
       to="/"
-      class="sticky top-4 mt-4 ml-4 btn text-center items-center font-bold rounded-full bg-gray-100 text-black normal-case text-xl hover:bg-white z-50"
+      class="sticky top-4 ml-4 btn text-center items-center font-bold rounded-full bg-gray-100 text-black normal-case text-xl hover:bg-white z-50 mt-4"
       >{{ "<" }}</RouterLink
     >
-
     <div
       class="flex flex-col justify-between content-center p-8 text-white text-xl"
     >
@@ -201,11 +200,11 @@ onMounted(() => {
         <div ref="refDivCorpoText" v-for="(texto, index) in textoBotoes" :key="index" class="flex">
           <transition
         enter-active-class="duration-100 ease-out"
-        enter-from-class="transform opacity-0 translate-x-full"
-        enter-to-class="opacity-50 translate-x-0"
+        enter-from-class="transform opacity-0"
+        enter-to-class="opacity-50"
         leave-active-class="duration-200 ease-in"
-        leave-from-class="opacity-100 translate-x-0"
-        leave-to-class="transform opacity-0 translate-x-full"
+        leave-from-class="opacity-100"
+        leave-to-class="transform opacity-0 "
           >
             <span
             ref="refCorpoText"
