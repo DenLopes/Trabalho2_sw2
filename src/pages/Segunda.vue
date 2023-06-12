@@ -223,7 +223,7 @@ onMounted(() => {
           <button
             v-for="(botao, index) in botoes"
             @click="mudaEstado(botoes, index), mudaEstado(textoBotoes, index)"
-            :class="botao.classe"
+            :class="(botao.estado ? 'bg-white text-black' : '' ) + botao.classe "
             class="btn m-3 sm:m-0"
           >
             {{ botao.nome }}
