@@ -199,7 +199,7 @@ onMounted(() => {
             O orçamento do IBAMA é direcionado para diversas áreas fundamentais
             na preservação do meio ambiente. Mas como esse recurso é dividido?
             Explore o gráfico abaixo para compreender melhor a distribuição das
-            receitas do IBAMA para o ano de 2023.
+            receitas do IBAMA durante os anos.
           </p>
           <div class="flex w-full h-full justify-center m-4">
             <div class="flex justify-center">
