@@ -138,7 +138,7 @@ onMounted(() => {
   <div class="bg-gray-950 min-h-screen h-full pb-96">
     <RouterLink
       to="/"
-      class="sticky top-4 ml-4 btn text-center items-center font-bold rounded-full bg-gray-100 text-black normal-case text-xl hover:bg-white z-50 mt-4"
+      class="sticky top-4 ml-4 btn text-center items-center font-bold rounded-full bg-gray-100 text-black normal-case text-xl hover:bg-white z-50 mt-4 p-6"
       >{{ "<" }}</RouterLink
     >
     <div
@@ -147,8 +147,8 @@ onMounted(() => {
       <h2 class="text-green-500 text-center text-3xl font-bold mb-28">
         O QUE É O IBAMA?
       </h2>
-
-      <div class="flex flex-row m-4 justify-around mb-40 items-center">
+	  
+      <div class="flex flex-col justify-around mb-40 items-center m-0 sm:flex-row">
         <p class="w-[70%] leading-10 text-justify text-2xl">
           O Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais
           Renováveis <strong class="text-green-500">(IBAMA)</strong> foi criado
@@ -165,17 +165,17 @@ onMounted(() => {
           para combater crimes ambientais, promover a conservação da
           biodiversidade e assegurar o uso sustentável dos recursos naturais.
         </p>
-        <img src="../assets/brasil.png" alt="brasil" class="w-44 h-44" />
+        <img src="../assets/brasil.png" alt="brasil" class="w-44 h-44 mt-12 sm:mt-0" />
       </div>
-      <div class="flex m-4 justify-around">
-        <div class="flex">
+      <div class="flex m-4  justify-around flex-col items-center sm:flex-row items-baseline">
+        <div class="flex relative top-7">
           <span class="text-green-500 font-bold text-5xl text-center"
             >1.87<br />BILHÃO</span
           >
           <span class="text-green-500 font-bold text-8xl ml-2">R$</span>
         </div>
         <div class="flex flex-col w-full">
-          <p class="w-full text-2xl leading-10 mb-10 ml-6 m-4">
+          <p class="w-full text-2xl leading-10 mb-10 ml-6 m-4 mt-20 sm:mt-0">
             O orçamento do IBAMA é direcionado para diversas áreas fundamentais
             na preservação do meio ambiente. Mas como esse recurso é dividido?
             Explore o gráfico abaixo para compreender melhor a distribuição das
@@ -219,12 +219,12 @@ onMounted(() => {
       </div>
 
       <div class="flex flex-col mt-12 mb-44">
-        <div class="flex justify-around mb-12">
+        <div class="flex justify-around mb-12 flex-col sm:flex-row">
           <button
             v-for="(botao, index) in botoes"
             @click="mudaEstado(botoes, index), mudaEstado(textoBotoes, index)"
             :class="botao.classe"
-            class="btn"
+            class="btn m-3 sm:m-0"
           >
             {{ botao.nome }}
           </button>
