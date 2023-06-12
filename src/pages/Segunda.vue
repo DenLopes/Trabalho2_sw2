@@ -3,6 +3,12 @@ import { ref, onMounted, computed, watch } from "vue";
 import Grafico from "../components/Grafico.vue";
 import dadosIbama from "../assets/Ibama.json";
 import imagem from "../assets/ibama-logo-1.png";
+import imagem01 from "../assets/fiscalizacao.jpg";
+import imagem02 from "../assets/mulherIbama.jpg";
+import imagem03 from "../assets/ibama3.png";
+import imagem04 from "../assets/fiscamato.jpg";
+import imagem05 from "../assets/Presidente.jpg";
+import imagem06 from "../assets/policia.jpg";
 
 const dados = dadosIbama;
 const tiposReceita = ref([]);
@@ -70,48 +76,62 @@ const botoes = ref([
 //array de texto do corpo
 const textoBotoes = ref([
   {
-    classe: "flex flex-col p-6 border border-solid border-white rounded-md text-center",
+    classe: "flex flex-col p-6 border border-solid border-white rounded-md text-center border border-solid rounded-lg border-yellow-300",
     estado: true,
     textos: [
       {
         texto:
-          "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
-        classeTexto: "flex font-bold text-2xl text-white",
-        srcImagem: imagem,
-        classImagem: "w-32 h-32 hover:scale-110",
+          "Uma das principais atribuições do Ibama é combater o tráfico ilegal de animais silvestres, uma atividade criminosa que ameaça a biodiversidade e coloca em risco diversas espécies. O instituto atua na fiscalização de criadores, comerciantes e transportadores de animais silvestres, bem como na repressão de atividades ilícitas e na apreensão dos animais contrabandeados.",
+        classeTexto: "flex text-xl text-white mb-14 items-center",
+        srcImagem: imagem01,
+        classImagem: "w-65 h-48 hover:scale-110 rounded-lg ml-5",
       },
       {
         texto:
-          "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
-        classeTexto: "flex flex-row-reverse font-bold text-2xl text-white",
-        srcImagem: imagem,
-        classImagem: "w-32 h-32 hover:scale-110",
-      },
-    ],
-  },
-  {
-    classe: "flex p-6 rounded-md text-center",
-    estado: false,
-    textos: [
-      {
-        texto:
-          "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
-        classeTexto: "font-bold text-2xl text-white",
-        srcImagem: imagem,
-        classImagem: "w-32 h-32 hover:scale-110",
+          "Além disso, o Ibama também é responsável por autorizar e regulamentar atividades que envolvam a captura, criação e manejo de animais silvestres em cativeiro, com o objetivo de garantir o bem-estar dos animais e evitar práticas prejudiciais à sua saúde e integridade.",
+        classeTexto: "flex flex-row-reverse text-xl text-white items-center",
+        srcImagem: imagem02,
+        classImagem: "w-65 h-48 hover:scale-110 rounded-lg mr-5",
       },
     ],
   },
   {
-    classe: "flex p-6 rounded-md text-center",
+	    classe: "flex flex-col p-6 border border-solid border-white rounded-md text-center border border-solid rounded-lg border-yellow-300",
     estado: false,
     textos: [
+	{
+        texto:
+          "IBAMA tem um papel fundamental na proteção da flora no Brasil, órgão atua na conservação dos ecossistemas, no combate ao desmatamento ilegal, na promoção do uso sustentável dos recursos florestais e na preservação de espécies ameaçadas.",
+        classeTexto: "flex text-xl text-white mb-14 items-center",
+        srcImagem: imagem03,
+        classImagem: "w-65 h-48 hover:scale-110 rounded-lg ml-5",
+      },
       {
         texto:
-          "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
-        classeTexto: "font-bold text-2xl text-white",
-        srcImagem: imagem,
-        classImagem: "w-32 h-32 hover:scale-110",
+          "Trabalha em conjunto com outros órgãos, como o Instituto Chico Mendes de Conservação da Biodiversidade, e estabelece parcerias com instituições e comunidades locais para fortalecer a proteção da flora no Brasil.",
+        classeTexto: "flex flex-row-reverse text-xl text-white items-center",
+        srcImagem: imagem04,
+        classImagem: "w-65 h-48 hover:scale-110 rounded-lg mr-5",
+      },
+    ],
+  },
+  {
+    classe: "flex flex-col p-6 border border-solid border-white rounded-md text-center border border-solid rounded-lg border-yellow-300",
+    estado: false,
+    textos: [
+	{
+        texto:
+          "Uma das principais formas de atuação política do Ibama é na elaboração de regulamentações e normas ambientais. O instituto contribui na criação de leis e decretos relacionados à proteção da fauna, à conservação dos ecossistemas, ao controle da poluição e a outras questões ambientais relevantes. Essas normas são fundamentais para orientar ações governamentais e estabelecer diretrizes para a proteção animal e a preservação ambiental.",
+        classeTexto: "flex text-xl text-white mb-14 items-center",
+        srcImagem: imagem05,
+        classImagem: "w-65 h-48 hover:scale-110 rounded-lg ml-5",
+      },
+      {
+        texto:
+          "Outra forma de atuação política do Ibama é por meio da participação em fóruns, conferências e negociações internacionais relacionadas ao meio ambiente. O instituto representa o Brasil em discussões sobre biodiversidade, mudanças climáticas, conservação marinha e outras pautas ambientais de relevância global. Essa participação permite ao Ibama contribuir para a definição de políticas internacionais e a adoção de medidas que promovam a proteção dos animais e do meio ambiente em escala global.",
+        classeTexto: "flex flex-row-reverse text-xl text-white items-center",
+        srcImagem: imagem06,
+        classImagem: "w-65 h-48 hover:scale-110 rounded-lg mr-5",
       },
     ],
   },
