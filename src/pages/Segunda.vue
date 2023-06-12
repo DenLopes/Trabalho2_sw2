@@ -2,6 +2,7 @@
 import { ref, onMounted, computed, watch } from "vue";
 import Grafico from "../components/Grafico.vue";
 import dadosIbama from "../assets/Ibama.json";
+import imagem from "../assets/ibama-logo-1.png";
 
 const dados = dadosIbama;
 const tiposReceita = ref([]);
@@ -69,22 +70,50 @@ const botoes = ref([
 //array de texto do corpo
 const textoBotoes = ref([
   {
-    texto:
-      "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
+    classe: "flex flex-col p-6 rounded-md text-center",
     estado: true,
-    classe: "border-solid border border-white p-6 rounded-md text-center border-yellow-300",
+    textos: [
+      {
+        texto:
+          "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
+        classeTexto: "flex font-bold text-2xl text-white",
+        srcImagem: imagem,
+        classImagem: "w-32 h-32 hover:scale-110",
+      },
+      {
+        texto:
+          "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
+        classeTexto: "flex flex-row-reverse font-bold text-2xl text-white",
+        srcImagem: imagem,
+        classImagem: "w-32 h-32 hover:scale-110",
+      },
+    ],
   },
   {
-    texto:
-      "O IBAMA é fundamental na conservação da flora brasileira. Suas ações incluem o licenciamento e controle de atividades florestais, combate ao desmatamento ilegal, monitoramento de áreas protegidas e proteção de espécies em perigo.",
+    classe: "flex p-6 rounded-md text-center",
     estado: false,
-    classe: "border-solid border border-white p-4 rounded-md",
+    textos: [
+      {
+        texto:
+          "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
+        classeTexto: "font-bold text-2xl text-white",
+        srcImagem: imagem,
+        classImagem: "w-32 h-32 hover:scale-110",
+      },
+    ],
   },
   {
-    texto:
-      "Como órgão governamental, o IBAMA executa políticas públicas relacionadas ao meio ambiente, implementa legislação ambiental, representa o país em fóruns internacionais, articula-se com outras entidades e promove a participação social na gestão ambiental.",
+    classe: "flex p-6 rounded-md text-center",
     estado: false,
-    classe: "border-solid border border-white p-4 rounded-md",
+    textos: [
+      {
+        texto:
+          "O IBAMA trabalha para combater o tráfico de animais silvestres, promover a conservação de espécies ameaçadas de extinção e proteger a flora brasileira. O órgão emite licenças para atividades que envolvem animais e plantas, realiza resgates e reintroduções de espécies em perigo.",
+        classeTexto: "font-bold text-2xl text-white",
+        srcImagem: imagem,
+        classImagem: "w-32 h-32 hover:scale-110",
+      },
+    ],
   },
 ]);
 
@@ -101,13 +130,12 @@ const mudaEstado = (val, index) => {
 
 onMounted(() => {
   separaReceita();
-  //gambiarra para o dar update no texto
   mudaEstado(botoes.value, 0);
 });
 </script>
 
 <template>
-  <div class="bg-gray-950 min-h-screen">
+  <div class="bg-gray-950 min-h-screen h-full pb-96">
     <RouterLink
       to="/"
       class="sticky top-4 ml-4 btn text-center items-center font-bold rounded-full bg-gray-100 text-black normal-case text-xl hover:bg-white z-50 mt-4"
@@ -119,7 +147,7 @@ onMounted(() => {
       <h2 class="text-green-500 text-center text-3xl font-bold mb-28">
         O QUE É O IBAMA?
       </h2>
-	  
+
       <div class="flex flex-row m-4 justify-around mb-40 items-center">
         <p class="w-[70%] leading-10 text-justify text-2xl">
           O Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais
@@ -142,7 +170,7 @@ onMounted(() => {
       <div class="flex m-4 justify-around">
         <div class="flex">
           <span class="text-green-500 font-bold text-5xl text-center"
-            >1.87<br/>BILHÃO</span
+            >1.87<br />BILHÃO</span
           >
           <span class="text-green-500 font-bold text-8xl ml-2">R$</span>
         </div>
@@ -210,13 +238,19 @@ onMounted(() => {
             leave-from-class="opacity-100"
             leave-to-class="transform opacity-0 "
           >
-            <span
+            <div
               class="absolute w-[calc(100vw-100px)]"
               v-show="texto.estado"
-              :key="index"
               :class="texto.classe"
-              >{{ texto.texto }}</span
+              :key="index"
             >
+              <div v-for="(bloco, index) in texto.textos" :key="index" :class="bloco.classeTexto">
+                <span class="w-[90%]"
+                  >{{ bloco.texto }}
+                </span>
+                <img :src="bloco.srcImagem" :class="bloco.classImagem" />
+              </div>
+            </div>
           </transition>
         </div>
       </div>
