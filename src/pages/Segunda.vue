@@ -70,7 +70,7 @@ const botoes = ref([
 //array de texto do corpo
 const textoBotoes = ref([
   {
-    classe: "flex flex-col p-6 rounded-md text-center",
+    classe: "flex flex-col p-6 border border-solid border-white rounded-md text-center",
     estado: true,
     textos: [
       {
