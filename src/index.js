@@ -5,6 +5,10 @@ import Segunda from "./pages/Segunda.vue";
 const routes = [
   {
     path: "/",
+    redirect: { name: 'Primeira' }
+  }
+  {
+    path: "/",
     name: "Primeira",
     component: Primeira
   },
