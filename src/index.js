@@ -4,7 +4,7 @@ import Segunda from "./pages/Segunda.vue";
 
 const routes = [
   {
-    path: "",
+    path: "/",
     name: "Primeira",
     component: Primeira
   },
