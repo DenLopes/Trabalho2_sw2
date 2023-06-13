@@ -4,7 +4,7 @@ import Segunda from "./pages/Segunda.vue";
 
 const router = createRouter({
   history: createWebHistory(),
-  routes = [
+  routes: [
   {
     path: "/",
     redirect: { name: 'Primeira' }
