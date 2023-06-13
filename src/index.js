@@ -19,7 +19,7 @@ const router = createRouter({
     name: "Segunda",
     component: Segunda
   },
-];
+],
 });
 
 export default router;
