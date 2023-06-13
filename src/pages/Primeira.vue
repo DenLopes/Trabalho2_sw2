@@ -17,7 +17,7 @@
     </div>
     <div class="flex justify-center mb-4 lg: mb-0">
       <router-link
-        to="{name: 'Segunda' }"
+        to="{ name: 'Segunda' }"
         class="btn w-40 h-16 text-white border border-solid border-white text-lg"
         >Saiba mais</router-link
       >
