@@ -2,7 +2,9 @@ import { createWebHistory, createRouter } from "vue-router";
 import Primeira from "./pages/Primeira.vue";
 import Segunda from "./pages/Segunda.vue";
 
-const routes = [
+const router = createRouter({
+  history: createWebHistory(),
+  routes = [
   {
     path: "/",
     redirect: { name: 'Primeira' }
@@ -18,10 +20,6 @@ const routes = [
     component: Segunda
   },
 ];
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes
 });
 
 export default router;
