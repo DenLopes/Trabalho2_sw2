@@ -1,6 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Primeira from "./pages/Primeira.vue";
-import Segunda from "./pages/Segunda.vue";
+import Primeira from "../pages/Primeira.vue";
+import Segunda from "../pages/Segunda.vue";
 
 const routes = [
   {
