@@ -8,12 +8,12 @@ const routes = [
     redirect: { name: 'Primeira' }
   }
   {
-    path: "/",
+    path: "/Trabalho2_sw2/",
     name: "Primeira",
     component: Primeira
   },
   {
-    path: "/inf",
+    path: "/Trabalho2_sw2/inf",
     name: "Segunda",
     component: Segunda
   },
