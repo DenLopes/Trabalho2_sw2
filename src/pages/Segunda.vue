@@ -157,7 +157,7 @@ onMounted(() => {
 <template>
   <div class="bg-gray-950 min-h-screen h-full pb-96">
     <RouterLink
-      to="{ name: 'Primeira' }"
+      to="/Trabalho2_sw2/"
       class="sticky top-4 ml-4 btn font-bold rounded-full bg-gray-100 text-black normal-case text-xl hover:bg-white z-50 mt-4"
       >{{ "<" }}</RouterLink
     >
