@@ -6,7 +6,7 @@ const routes = [
   {
     path: "/",
     redirect: { name: 'Primeira' }
-  }
+  },
   {
     path: "/Trabalho2_sw2/",
     name: "Primeira",
